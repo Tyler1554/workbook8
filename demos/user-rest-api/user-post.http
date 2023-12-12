@@ -1,4 +1,11 @@
-get http://localhost:3000/users/1
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+        "userId": 1,
+        "title": "Hangout with ian",
+        "completed": false,
+        "id": ""
+    }
 
 
-.DS_Store

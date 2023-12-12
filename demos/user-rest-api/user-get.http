@@ -1,4 +1,4 @@
-get http://localhost:3000/users/1
+GET http://localhost:3000/courses
 
 
-//review to find 1
+//review to find many
