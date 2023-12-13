@@ -21,13 +21,13 @@ function loadUsersTable(users) {
     let td8 = row.insertCell();
     let a1 = document.createElement("a");
     a1.innerText = "edit";
-    a1.href = `edit-user.html?courseid=${user.id}`;
+    a1.href = `edit-user.html?id=${user.id}`;
     td8.appendChild(a1);
 
     let td9 = row.insertCell();
     let a2 = document.createElement("a");
     a2.innerText = "delete";
-    a2.href = `delete-user.html?courseid=${user.id}`;
+    a2.href = `delete-user.html?id=${user.id}`;
     td9.appendChild(a2);
   }
 }
