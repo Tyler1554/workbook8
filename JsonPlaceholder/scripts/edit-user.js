@@ -6,11 +6,12 @@
 
   function loadUser() {
       let id = 0;
-      if (urlParams.has("name") === true) {
-          id = urlParams.get("name");
+      if (urlParams.has("id") === true) {
+          id = urlParams.get("id");
           fetch(`http://localhost:3000/users/${id}`)
         .then((response) => response.json())
         .then((user) => {
+            console.log(user);
           nameField.innerText = user.name;
           userNameField.innerText = user.username;
           emailField.innerText = user.email;
