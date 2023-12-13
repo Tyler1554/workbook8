@@ -14,6 +14,18 @@ function loadUsersTable(users) {
 
     let cell3 = row.insertCell();
     cell3.innerText = user.email;
+
+    let td8 = row.insertCell();
+    let a1 = document.createElement("a");
+    a1.innerText = "edit";
+    a1.href = "edit-user.html";
+    td8.appendChild(a1);
+
+    let td9 = row.insertCell();
+    let a2 = document.createElement("a");
+    a2.innerText = "delete";
+    a2.href = "delete-user.html";
+    td9.appendChild(a2);
   }
 }
 
@@ -28,8 +40,6 @@ function initialize() {
 }
 
 window.onload = initialize;
-
-
 
 // use this code to redirect to home page
 // window.location.href = “users.html”
