@@ -6,11 +6,11 @@ const urlParams = new URLSearchParams(location.search);
 
 //write function
 
-async function initialize() {
+ function initialize() {
   let id = -1;
   if (urlParams.has("id") === true) {
     id = urlParams.get("id");
-   await fetch(`http://localhost:3000/users/${id}`, {
+    fetch(`http://localhost:3000/users/${id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())

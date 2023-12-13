@@ -6,12 +6,12 @@ async function initialize() {
 
   function createUser() {
     let newName = nameInput.value;
-    let newUserName = emailInput.value;
-    let newUserCompany = userNameInput.value;
+    let newUserName = userNameInput.value;
+    let newEmail = emailInput.value;
     const user = {
       name: `${newName}`,
       username: `${newUserName}`,
-      email: `${newUserCompany}`,
+      email: `${newEmail}`,
     };
 
     fetch("http://localhost:3000/users", {
