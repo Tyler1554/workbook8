@@ -15,6 +15,9 @@ function loadUsersTable(users) {
     let cell3 = row.insertCell();
     cell3.innerText = user.email;
 
+    let cell4 = row.insertCell();
+    cell4.innerText = user.id;
+
     let td8 = row.insertCell();
     let a1 = document.createElement("a");
     a1.innerText = "edit";
