@@ -1,6 +1,6 @@
 //get html element
-const usersTableBody = document.getElementById("usersTableBody");
-
+const usersTableBody = document.querySelector("#usersTableBody");
+const deleteModal = document.querySelector("#exampleModal");
 //write function
 function loadUsersTable(users) {
   for (const user of users) {

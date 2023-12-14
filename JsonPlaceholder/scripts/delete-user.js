@@ -6,9 +6,9 @@ const urlParams = new URLSearchParams(location.search);
 
 //write function
 
- function initialize() {
+ function deleteUser() {
   let id = -1;
-  if (urlParams.has("id") === true) {
+  if (urlParams.has("id")) {
     id = urlParams.get("id");
     fetch(`http://localhost:3000/users/${id}`, {
       method: "DELETE",
@@ -20,4 +20,5 @@ const urlParams = new URLSearchParams(location.search);
 
 
 
-yesButton.onclick = initialize;
+
+yesButton.onclick = () => deleteUser(user.id) 
