@@ -28,5 +28,6 @@ async function initialize() {
   }
   submitNewUserButton.onclick = createUser;
 }
+sessionStorage.setItem("message","Successfully added!")
 
 window.onload = initialize;

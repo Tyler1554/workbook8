@@ -1,5 +1,5 @@
 //get html element
-const yesButton = document.querySelector("#yes-button");
+// const yesButton = document.querySelector("#yes-button");
 const noButton = document.querySelector("#no-button");
 
 const urlParams = new URLSearchParams(location.search);
@@ -21,4 +21,4 @@ const urlParams = new URLSearchParams(location.search);
 
 
 
-yesButton.onclick = () => deleteUser(user.id) 
+// yesButton.onclick = deleteUser; 

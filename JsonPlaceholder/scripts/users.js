@@ -1,7 +1,21 @@
 //get html element
 const usersTableBody = document.querySelector("#usersTableBody");
+const yesButton = document.querySelector("#yes-button");
 const deleteModal = document.querySelector("#exampleModal");
+let messageDiv = document.querySelector("#message-div");
+
 //write function
+
+function getUser() {
+  let users = fetch("http://localhost:3000/users");
+
+  fetch("http://localhost:3000/users")
+    .then((response) => response.json())
+    .then((data) => {
+      loadUsersTable(data);
+    });
+}
+
 function loadUsersTable(users) {
   for (const user of users) {
     let row = usersTableBody.insertRow();
@@ -25,24 +39,41 @@ function loadUsersTable(users) {
     td8.appendChild(a1);
 
     let td9 = row.insertCell();
-    let a2 = document.createElement("a");
-    a2.innerText = "delete";
-    a2.href = `delete-user.html?id=${user.id}`;
-    td9.appendChild(a2);
+    let deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.classList.add("btn", "btn-primary");
+    deleteButton.textContent = "Delete";
+    deleteButton.setAttribute("data-bs-toggle", "modal");
+    deleteButton.setAttribute("data-bs-target", "#exampleModal");
+    deleteButton.id = user.id;
+    // deleteButton.addEventListener("click", () => modal(user.id));
+    td9.appendChild(deleteButton);
   }
 }
+yesButton.addEventListener("click", () => deleteUser(users));
 
-function initialize() {
-  let users = fetch("http://localhost:3000/users");
+// turned id to user top bottom
 
-  fetch("http://localhost:3000/users")
+function deleteUser(users) {
+  // let id = -1;
+  // if (urlParams.has("id")) {
+  //   id = urlParams.get("id");
+  fetch(`http://localhost:3000/users/${id}`, {
+    method: "DELETE",
+  })
     .then((response) => response.json())
-    .then((data) => {
-      loadUsersTable(data);
-    });
+    .then((user) => (window.location.href = "users.html"));
 }
 
-window.onload = initialize;
+window.onload = function initialize() {
+  let message = sessionStorage.getItem("message");
+  if (message) {
+    messageDiv.innerText = message;
+  }
+  setTimeout(function () {
+    messageDiv.innerText = "";
+    sessionStorage.removeItem("message");
+  }, 4000);
 
-// use this code to redirect to home page
-// window.location.href = “users.html”
+  getUser();
+};
