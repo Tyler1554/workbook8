@@ -3,11 +3,11 @@ const usersTableBody = document.querySelector("#usersTableBody");
 const yesButton = document.querySelector("#yes-button");
 const deleteModal = document.querySelector("#exampleModal");
 let messageDiv = document.querySelector("#message-div");
-
+let users= "";
 //write function
 
 function getUser() {
-  let users = fetch("http://localhost:3000/users");
+   users = fetch("http://localhost:3000/users");
 
   fetch("http://localhost:3000/users")
     .then((response) => response.json())
